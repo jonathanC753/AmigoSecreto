@@ -17,9 +17,11 @@ function agregarAmigo() {
     } if (listaAmigos.includes(nombreAmigo)) {
         msgError.innerHTML = `!!!el nombre ${nombreAmigo} YA EXISTE¡¡¡`;
         limpiarCampo()
-    }else {
+    } else {
         listaAmigos.push(nombreAmigo);
         displayArray();
+        actualizarEstadoBoton();
+
         msgError.innerHTML = ""; // elimina mensaje de error cuando el dato es correcto
         limpiarCampo();
     }
@@ -40,7 +42,25 @@ function limpiarCampo() {
 }
 
 function sortearAmigo() {
-    let selctRandList = Math.floor(Math.random() * listaAmigos.length);
-    document.getElementById("resultado").innerHTML = listaAmigos[selctRandList].toString();
+    if (listaAmigos.length > 0) {
+        let selctRandList = Math.floor(Math.random() * listaAmigos.length);
+        document.getElementById("resultado").innerHTML = "El amigo seleccionado es: " + listaAmigos[selctRandList].toString();
+        document.getElementById("btnSortear").disabled = true;
+    } else {
+        msgError.innerHTML = `!!! El campo esta vacio¡¡¡`;
+    }
 }
 
+function VaciarLista() {
+    document.getElementById("amigo").value = "";
+    listaAmigos = [];
+    displayArray();
+    document.getElementById("resultado").innerHTML = "";
+    document.getElementById("btnSortear").disabled = false; // habilitar de nuevo
+
+}
+
+function actualizarEstadoBoton() {
+    const boton = document.getElementById("btnRest");
+    boton.disabled = listaAmigos.length === 0;
+}

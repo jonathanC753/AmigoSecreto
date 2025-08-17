@@ -3,7 +3,9 @@
     --color-secondary: #FFF9EB;
     --color-tertiary: #C4C4C4;
     --color-button: #fe652b;
+    --color-button2: #20c6f0;
     --color-button-hover: #e55720;
+    --color-button-hover2: #4887ac;
     --color-text: #444444;
     --color-white: #FFFFFF;
 }
@@ -160,11 +162,40 @@ ul {
     background-color: var(--color-button);
     font-size: 16px;
 }
-
+.button-draw2 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 40px;
+    color: var(--color-white);
+    background-color: var(--color-button2);
+    font-size: 16px;
+}
 .button-draw img {
+    margin-right: 40px;
+}
+.button-draw2 img {
+    width: 40px;
+  height: auto;
     margin-right: 40px;
 }
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+}
+.button-draw2:hover {
+    background-color: var(--color-button-hover2);
+}
+
+.button-draw:disabled {
+  background-color: #ccc; /* gris cuando está bloqueado */
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.button-draw2:disabled {
+  background-color: #ccc; /* gris cuando está bloqueado */
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
